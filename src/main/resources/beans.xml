@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="hello" class="pl.coderslab.beans.Hello">
+        <constructor-arg value="hi I'm value passed through constructor from the beans.xml config file"/>
+
+        <!--        <property name="message" value="I am value set via setter and deliviered from beans.xml config fiel"/>-->
+
+
+    </bean>
+
+    <bean id="notificationService" class="pl.coderslab.beans.SmsService"/>
+    <bean id="messageSender" class="pl.coderslab.beans.MessageSender">
+        <constructor-arg ref="notificationService"/>
+        <property name="message" value="default message"/>
+    </bean>
+
+</beans>
